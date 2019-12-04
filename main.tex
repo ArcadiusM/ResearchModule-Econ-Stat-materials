@@ -1,0 +1,123 @@
+%template Master Thesis 
+%University of Bonn Master of Life Science Informatics
+% arara: pdflatex: { synctex: on }
+
+\documentclass[ twoside=false, 12pt,  footinclude=true,  headinclude=true,  cleardoublepage=empty]{scrbook}
+
+\usepackage[utf8]{inputenc}
+\usepackage [english] {babel} 
+
+\usepackage[]{biblatex}
+\addbibresource{references.bib}
+
+\usepackage{lipsum}
+\usepackage[linedheaders,parts,pdfspacing]{classicthesis}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage [T1]{fontenc}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage[toc,page]{appendix}
+\usepackage{MnSymbol}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{mathtools} 
+\usepackage{enumerate}
+\usepackage{csquotes}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{acro}
+\usepackage[a4paper,includeall,margin=2cm,marginparsep=0cm,marginparwidth=0cm,left=3cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[font={footnotesize,it}, labelfont=bf]{caption}
+
+\setlength{\parskip}{10pt} % Abstand zwischen den Absätzen
+\setlength{\parindent}{0pt} %Erstzeileneinzug 
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{4}
+
+\DeclareAcronym{AD}{
+	short = AD ,
+	long  = Alzheimer's disease
+}
+
+\title{Master Thesis}
+\date{\today}
+\begin{document}
+	\begin{titlepage}
+		\centering
+		University of Bonn
+		
+		 Master Programme in Economics
+		\vspace{1in}
+		\vspace{1in}
+		
+		{\LARGE \bfseries  Random Forest for Classification Problems}
+		\vspace{1in}
+		
+		{\large Submitted by}
+		
+		{\LARGE Burak Balaban \par
+				Arkadiusz Modzelewski\par
+				Raphael Redmer\par}
+		
+		\vspace{1in}
+		
+			Supervisor: Prof. Dr. Dominik Liebl
+			
+		\vfill
+		
+		\begin{flushleft}
+			\today
+		\end{flushleft}
+		
+	\end{titlepage}
+	
+%	% Add blank page
+%	\newpage
+%	\thispagestyle{empty}
+%	\mbox{}
+	
+	% /frontmatter -> Turn on roman numbering for the following content and turns off normal numbering
+	
+	\frontmatter
+
+\tableofcontents
+
+\chapter*{Abstract}
+As a non-parametric estimation tool, decision trees attract attention in the economics literature. Yet, decision trees suffer from high variance and, for prediction purposes higher variance seems to be a crucial problem, thus, several improvements were proposed such as bootstrap aggregation, boosting and most importantly random forests. In this project, while the main focus is being on the random forest, The elements of statistical learning by \cite{friedman2001elements} \cite{varian2014big} \cite{maimon2005data}, \cite{louppe2014understanding} and as expected \cite{breiman2001random} are the main literature that will be utilized in this project.
+
+To explain the concept of random forests in full extent, primarily decision trees should be discussed. Exploiting the main idea and struggles with bias-variance trade-off, random forests' importance can be emphasized as a more stable prediction tool \cite{maimon2005data}. Conceptual comparison of random forests with bagging and boosting can deliver a better understanding of its unique features as \cite{lee2019bootstrap} shows in a similar fashion. To get a further understanding, random forests’ estimation process can be mathematical explained \cite{biau2012analysis} and likewise, examining the consistency of estimator and showing the properties can be included \cite{breiman2004consistency}, \cite{denil2014narrowing}. Also, variable importance in the tree growing process is another area that needs to be delved into \cite{ishwaran2007variable} and \cite{louppe2013understanding}.
+
+
+
+% /frontmatter -> Turn on normal numbering 
+\mainmatter
+
+\include{chapters/intro}
+
+\include{chapters/decision_tree}
+
+\include{chapters/random_forest}
+
+\include{chapters/comparison}
+
+\include{chapters/conclusion}
+
+\printbibliography
+
+
+\chapter*{Declaration}
+I hereby certify that this material is my own work, that I used only those sources and resources referred to in the thesis, and that I have identified citations as such.
+		
+\vspace{0.3in}
+
+\noindent Bonn, \today
+
+\end{document}
