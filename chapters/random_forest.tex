@@ -1,40 +1,37 @@
-\documentclass{article}
-\usepackage{blindtext}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
+
+\chapter{Random Forest}
+Decision trees, which we mentioned in the previous section, have been used for a long time. Deployment of decision trees is visible in simple situations and also in more complex scientific or real life and industrial affairs. The recent popularity of decision trees is due to work presented by Breiman between 1996 and 2004 that ensamples of different decision trees can get a meaningful improvement in accuracy in classification problems and other common learning tasks such as regression. As the unit in this procedure is based on decision tree and includes an injection of randomness, this method is known as a random forest. 
+
+\section{Main idea and illustration}
+An ensemble of randomly trained decision trees, so in other words random decision forest was defined by Breiman in his work ,,Random Forests”  from 2001 as follows:
+
+\newtheorem{theorem}{Definition}
+\begin{theorem}
+A random forest is a classifier consisting of a collection of tree-structured classifiers \{${h(\textbf{x},\Theta_{k})}, k = 1,2,...$\} where the \{$\Theta_{k}$\} are independent identically
+distributed random vectors and each tree casts a unit vote for the most popular class at input $\textbf{x}$ .
+\end{theorem}
+The main aspect of a random decision forest model is an injection of randomness which allows to have all unit trees different from the others. Two key concepts that makes decision forest "random" are:
+\begin{enumerate}
+\item Random sampling of training data points when building trees
+\item Random subsets of features considered when splitting nodes
+\end{enumerate}
+Randomness parameter has a meaningful impact on the model, because except controlling the amount of randomness within each tree, it controls also the amount of correlation between different trees in the forest. As randomness parameter decreases, trees become more decorrelated [Decision Forests: A Unified Framework for Classification, Regression, Density Estimation, Manifold Learning and Semi-Supervised Learning]. Training of all trees is done independently and testing consists in the fact that each test point is pushed through every tree included in forest until it ends in corresponding leaves. As a last step is taking all predictions from every unit decision tree and combining them into prediction of single random forest. Combination of different tree predictions can be done in different ways. In random forests for classification problems, forests generate probabilistic output. It means that they return not just a single class point prediction, but whole class distribution, so combination of tree predictions can be described as below:
+
+\begin{center}
+$p(c|\textbf{v}) =  \frac{1}{T} \displaystyle\sum_{t}^{T} p_{t}(c|\textbf{v})$
+\end{center}
+
+where in a random forest with the number of decision trees equals to $T$ each tth tree obtains the posterior distribution $ p_{t}(c|\textbf{v})$. The class label here is symbolized by $c$ such that $c \in \textbf{C}$ with $ \textbf{C} = \{ c_{k}\} $
 
 
-\begin{document}
+
+\section{Mathematical explanation and Consistency}
 
 
-\section{Random Forest}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.
+\section{Interpretation}
 
-\subsection{Main idea and illustration}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
-\subsection{Mathematical explanation and Consistency}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.
+\section{Variable importance}
 
-\subsection{Interpretation}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.
+\section{Error estimation for random forest}
 
-\subsubsection{Variable importance}
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
-no sea takimata sanctus est Lorem ipsum dolor sit amet.
-
-\end{document}
