@@ -1,2 +1,2 @@
-# ResearchModule_Econ_Stat
-Random Forest project at Uni Bonn and additional tasks
+# ResearchModule materials
+Books and other materials used during Research Module Econometrics&Statistics Seminars and for final project
